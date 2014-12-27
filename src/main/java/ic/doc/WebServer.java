@@ -25,7 +25,7 @@ public class WebServer {
         server.start();
         server.join();
     }
-    
+
     static class Website extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
