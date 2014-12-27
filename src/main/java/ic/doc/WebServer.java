@@ -15,6 +15,17 @@ import java.io.IOException;
 
 public class WebServer {
 
+    public WebServer() throws Exception {
+        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        context.setContextPath("/");
+        server.setHandler(context);
+        context.addServlet(new ServletHolder(new Api()), "/api/*");
+        context.addServlet(new ServletHolder(new Website()), "/*");
+        server.start();
+        server.join();
+    }
+    
     static class Website extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,14 +45,7 @@ public class WebServer {
     }
 
     public static void main(String[] args) throws Exception {
-        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
-        server.setHandler(context);
-        context.addServlet(new ServletHolder(new Api()), "/api/*");
-        context.addServlet(new ServletHolder(new Website()), "/*");
-        server.start();
-        server.join();
+        new WebServer();
     }
 }
 
