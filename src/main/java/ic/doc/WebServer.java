@@ -1,8 +1,8 @@
-package com.develogical;
+package ic.doc;
 
-import com.develogical.web.ApiResponse;
-import com.develogical.web.IndexPage;
-import com.develogical.web.ResultsPage;
+import ic.doc.web.ApiResponse;
+import ic.doc.web.IndexPage;
+import ic.doc.web.ResultsPage;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;

@@ -1,4 +1,4 @@
-package com.develogical;
+package ic.doc;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
-package com.develogical.web;
+package ic.doc.web;
 
-import com.develogical.QueryProcessor;
+import ic.doc.QueryProcessor;
 
 import java.io.PrintWriter;
 

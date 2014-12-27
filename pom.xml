@@ -48,7 +48,7 @@
                             <assembleDirectory>target</assembleDirectory>
                             <programs>
                                 <program>
-                                    <mainClass>com.develogical.WebServer</mainClass>
+                                    <mainClass>ic.doc.WebServer</mainClass>
                                     <name>SimpleWebApp</name>
                                 </program>
                             </programs>
