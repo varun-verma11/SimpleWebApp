@@ -46,7 +46,10 @@ public class WebServer
             } else if (qParam.startsWith("what currency did Spain use before the Euro"))
             {
                 new ResultsPage("Peseta").writeTo(resp);
-            } else if (qParam.startsWith("what is"))
+            } else if (qParam.startsWith("what currency did Spain use before the Euro"))
+            {
+                new ResultsPage("Peseta").writeTo(resp);
+            } else if (qParam.startsWith("who is the Prime Minister of Great Britain"))
             {
                 String rem = qParam.substring("what is ".length());
                 new ResultsPage(getArithmetic(rem) + "").writeTo(resp);
@@ -62,9 +65,12 @@ public class WebServer
             if (str.contains("plus"))
             {
                 return Integer.parseInt(tokens[0].replaceAll("\\s+", "")) + Integer.parseInt(tokens[2].replaceAll("\\s+", ""));
+            } else if (str.contains("minus"))
+            {
+                return Integer.parseInt(tokens[0].replaceAll("\\s+", "")) - Integer.parseInt(tokens[2].replaceAll("\\s+", ""));
             } else if (str.contains("multiplied by"))
             {
-                return Integer.parseInt(tokens[0].replaceAll("\\s+", "")) + Integer.parseInt(tokens[3].replaceAll("\\s+", ""));
+                return Integer.parseInt(tokens[0].replaceAll("\\s+", "")) * Integer.parseInt(tokens[3].replaceAll("\\s+", ""));
             }
             return -1;
         }
