@@ -43,6 +43,9 @@ public class WebServer
             {
                 String[] numbers = qParam.split(":")[1].split(",");
                 new ResultsPage(findMaxInt(numbers) + "").writeTo(resp);
+            } else if (qParam.startsWith("what currency did Spain use before the Euro"))
+            {
+                new ResultsPage("Peseta").writeTo(resp);
             } else
             {
                 new ResultsPage(qParam).writeTo(resp);
@@ -54,7 +57,7 @@ public class WebServer
             int result = Integer.MIN_VALUE;
             for (String i : list)
             {
-                int num = Integer.parseInt(i);
+                int num = Integer.parseInt(i.trim());
                 if (result < num)
                     result = num;
             }
