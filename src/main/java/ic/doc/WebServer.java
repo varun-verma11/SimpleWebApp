@@ -51,8 +51,7 @@ public class WebServer
                 new ResultsPage("Peseta").writeTo(resp);
             } else if (qParam.startsWith("who is the Prime Minister of Great Britain"))
             {
-                String rem = qParam.substring("what is ".length());
-                new ResultsPage(getArithmetic(rem) + "").writeTo(resp);
+                new ResultsPage("David Cameron").writeTo(resp);
             } else
             {
                 new ResultsPage(qParam).writeTo(resp);
