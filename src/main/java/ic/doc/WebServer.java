@@ -46,10 +46,27 @@ public class WebServer
             } else if (qParam.startsWith("what currency did Spain use before the Euro"))
             {
                 new ResultsPage("Peseta").writeTo(resp);
+            } else if (qParam.startsWith("what is"))
+            {
+                String rem = qParam.substring("what is ".length());
+                new ResultsPage(getArithmetic(rem) + "").writeTo(resp);
             } else
             {
                 new ResultsPage(qParam).writeTo(resp);
             }
+        }
+
+        private int getArithmetic(String str)
+        {
+            String[] tokens = str.split(" ");
+            if (str.contains("plus"))
+            {
+                return Integer.parseInt(tokens[0].replaceAll("\\s+", "")) + Integer.parseInt(tokens[2].replaceAll("\\s+", ""));
+            } else if (str.contains("multiplied by"))
+            {
+                return Integer.parseInt(tokens[0].replaceAll("\\s+", "")) + Integer.parseInt(tokens[3].replaceAll("\\s+", ""));
+            }
+            return -1;
         }
 
         private int findMaxInt(String[] list)
