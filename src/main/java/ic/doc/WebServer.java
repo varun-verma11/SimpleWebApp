@@ -57,7 +57,7 @@ public class WebServer
             int result = Integer.MIN_VALUE;
             for (String i : list)
             {
-                int num = Integer.parseInt(i.trim());
+                int num = Integer.parseInt(i.replaceAll("\\s+", ""));
                 if (result < num)
                     result = num;
             }
